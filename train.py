@@ -89,14 +89,14 @@ if __name__=='__main__':
     # Train model
     print("Start training %d epochs" % args.num_epochs)
     for e in range(1, args.num_epochs+1):
-        logger.info("Epoch %02d/%02d" % (e, args.num_epochs))
+        logger.info("Epoch %03d/%03d" % (e, args.num_epochs))
         logger.info("Start training")
 
-        print("\nEpoch %02d/%02d" % (e, args.num_epochs), flush=True)
+        print("\nEpoch %03d/%03d" % (e, args.num_epochs), flush=True)
         
         save_file = None
         if e % args.save_every == 0:
-            save_file = os.path.join(args.weight_dir, 'epoch_%02d.h5' % e)
+            save_file = os.path.join(args.weight_dir, 'epoch_%03d.h5' % e)
 
         train_loss = train_model(model, optim, train_iter, pad_token, device=device, weight_path=save_file)
         logger.info("End training")
